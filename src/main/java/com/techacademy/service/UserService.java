@@ -21,10 +21,16 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User getUser(Integer id) {
+        return userRepository.findById(id).get();
+    }
+
     @Transactional
     public User saveUser(User user) {
         return userRepository.save(user);
 
     }
+
+
 
 }
