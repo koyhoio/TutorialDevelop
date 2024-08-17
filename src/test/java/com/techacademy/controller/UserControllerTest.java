@@ -67,7 +67,7 @@ class UserControllerTest {
     @DisplayName("一覧画面")
     @WithMockUser
     void testGetList() throws Exception {
-        MvcResult result = mockMvc.perform(get("user/list"))
+        MvcResult result = mockMvc.perform(get("/user/list"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("userlist"))
                 .andExpect(model().hasNoErrors())
@@ -83,6 +83,10 @@ class UserControllerTest {
         assertEquals("キラメキ次郎", userlist.get(1).getName());
         assertEquals(3, userlist.get(2).getId());
         assertEquals("キラメキ花子", userlist.get(2).getName());
+
+        assertEquals(3, userlist.size());
+
+
 
 
     }
